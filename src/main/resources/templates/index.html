@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>Country List</h1>
+	<table>
+		<thead>
+			<tr>
+				<th>Employee First Name</th>
+				<th>Employee Last Name</th>
+				<th>Employee Email</th>
+				<th>Actions</th>
+				<th>Add Contact</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="country : ${listCountries}">
+				<td th:text="${country.countryId}"></td>
+				<td th:text="${country.country}"></td>
+				<td th:text="${#dates.format(country.lastUpdate, 'dd-MMM-yyyy')}"></td>				
+				<td> 
+
+			 	</td>
+				<td>
+
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>

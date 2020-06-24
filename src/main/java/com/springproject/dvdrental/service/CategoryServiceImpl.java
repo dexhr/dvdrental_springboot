@@ -28,7 +28,7 @@ public class CategoryServiceImpl implements CategoryService{
 	}
 
 	@Override
-	public Category findCategoryById(int id) {
+	public Category getCategoryById(int id) {
 		// TODO Auto-generated method stub
 		Optional <Category> optional = categoryRepository.findById(id);
 		Category category = null;
@@ -41,7 +41,7 @@ public class CategoryServiceImpl implements CategoryService{
 	@Override
 	public void deleteCategory(int id) {
 		// TODO Auto-generated method stub
-		categoryRepository.delete(findCategoryById(id));
+		categoryRepository.delete(getCategoryById(id));
 	}
 	
 }

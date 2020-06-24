@@ -40,7 +40,7 @@ public class ActorServiceImpl implements ActorService{
 	}
 
 	@Override
-	public void deleteActorById(int id) {
+	public void deleteActor(int id) {
 		// TODO Auto-generated method stub
 		actorRepository.delete(getActorById(id));
 	}

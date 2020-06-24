@@ -29,7 +29,7 @@ public class LanguageServiceImpl implements LanguageService{
 	}
 
 	@Override
-	public Language getLanguage(int id) {
+	public Language getLanguageById(int id) {
 		// TODO Auto-generated method stub
 		Optional<Language> optional = languageRepository.findById(id);
 		Language language = null;
@@ -44,7 +44,7 @@ public class LanguageServiceImpl implements LanguageService{
 	@Override
 	public void deleteLanguage(int id) {
 		// TODO Auto-generated method stub
-		languageRepository.delete(getLanguage(id));
+		languageRepository.delete(getLanguageById(id));
 	}
 
 }

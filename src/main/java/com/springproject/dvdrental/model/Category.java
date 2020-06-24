@@ -6,15 +6,16 @@ import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
 @Table
 public class Category {
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(generator = "category_generator")
+	@SequenceGenerator(name="category_generator", sequenceName = "category_category_id_seq", allocationSize=1)
 	@Column(name = "category_id")
 	private int categoryId;
 	@Column(name = "name")

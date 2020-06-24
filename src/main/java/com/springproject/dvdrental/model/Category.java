@@ -2,11 +2,13 @@ package com.springproject.dvdrental.model;
 
 
 import java.util.Date;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -22,6 +24,9 @@ public class Category {
 	private String name;
 	@Column(name = "last_update")
 	private Date lastUpdate;
+	
+	@OneToMany(mappedBy = "category")
+    public Set<Film_Category> filmCategory;
 	
 	public Category() {
 		
@@ -47,5 +52,15 @@ public class Category {
 	public void setLastUpdate(Date lastUpdate) {
 		this.lastUpdate = lastUpdate;
 	}
+
+	public Set<Film_Category> getFilmCategory() {
+		return filmCategory;
+	}
+
+	public void setFilmCategory(Set<Film_Category> filmCategory) {
+		this.filmCategory = filmCategory;
+	}
+	
+	
 	
 }

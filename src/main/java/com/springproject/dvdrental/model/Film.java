@@ -1,7 +1,8 @@
 package com.springproject.dvdrental.model;
 
 import java.time.Year;
-import java.util.Date;	
+import java.util.Date;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Convert;
@@ -10,6 +11,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -53,11 +55,13 @@ public class Film {
 	@ManyToOne
 	@JoinColumn(name = "language_id")
 	private Language language;
-//	
+	
+	@OneToMany(mappedBy = "film")
+	private Set<Film_Category> filmCategory;
+	
 	public Film() {
 		
 	}
-//
 	public int getFilmId() {
 		return filmId;
 	}
@@ -161,5 +165,13 @@ public class Film {
 	public void setLanguage(Language language) {
 		this.language = language;
 	}
+	public Set<Film_Category> getFilmCategory() {
+		return filmCategory;
+	}
+	public void setFilmCategory(Set<Film_Category> filmCategory) {
+		this.filmCategory = filmCategory;
+	}
+	
+	
 	
 }

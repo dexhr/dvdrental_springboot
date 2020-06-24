@@ -13,16 +13,20 @@ import com.springproject.dvdrental.model.Category;
 import com.springproject.dvdrental.model.City;
 import com.springproject.dvdrental.model.Country;
 import com.springproject.dvdrental.model.Film;
+import com.springproject.dvdrental.model.Film_Category;
 import com.springproject.dvdrental.model.Language;
 import com.springproject.dvdrental.model.Staff;
+import com.springproject.dvdrental.model.Store;
 import com.springproject.dvdrental.service.ActorService;
 import com.springproject.dvdrental.service.AddressService;
 import com.springproject.dvdrental.service.CategoryService;
 import com.springproject.dvdrental.service.CityService;
 import com.springproject.dvdrental.service.CountryService;
 import com.springproject.dvdrental.service.FilmService;
+import com.springproject.dvdrental.service.Film_CategoryService;
 import com.springproject.dvdrental.service.LanguageService;
 import com.springproject.dvdrental.service.StaffService;
+import com.springproject.dvdrental.service.StoreService;
 
 @Controller
 public class TestPersistenceController {
@@ -43,6 +47,10 @@ public class TestPersistenceController {
 	private StaffService staffService;
 	@Autowired
 	private FilmService filmService;
+	@Autowired
+	private Film_CategoryService filmCatService;
+	@Autowired
+	private StoreService storeService;
 	
 	@GetMapping("/")
 	public String viewHomePage(Model model) {
@@ -91,9 +99,15 @@ public class TestPersistenceController {
 				}
 				
 				for(Film film : filmService.getAllFilms()) {
-//					System.out.println("Film: " + film.getTitle() + " : " + film.getDescription() + "\n"
-//							+ " Year " + film.getYear());
 					System.out.println("ID: " + film.getFilmId() + film.getLanguage().getName() + film.getYear() + film.getSpecialFeatures() + film.getRating() + film.getFulltext());
+				}
+				
+				for(Film_Category fcr : filmCatService.getAllFilmCategory()) {
+					System.out.println("FCAT: " + fcr.getLastUpdate() + fcr.getFilm().getTitle() + fcr.getCategory().getName());
+				}
+				
+				for(Store st : storeService.getAllStores()) {
+					System.out.print("Store: " + st.getStoreId() + st.getStaff().getFirstName() + st.getAddress().getDistrict());
 				}
 				
 				System.out.println("Cantidad de actores: " + actorService.getAllActors().size());

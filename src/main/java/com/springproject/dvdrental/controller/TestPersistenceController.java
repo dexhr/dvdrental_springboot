@@ -12,8 +12,10 @@ import com.springproject.dvdrental.model.Address;
 import com.springproject.dvdrental.model.Category;
 import com.springproject.dvdrental.model.City;
 import com.springproject.dvdrental.model.Country;
+import com.springproject.dvdrental.model.Customer;
 import com.springproject.dvdrental.model.Film;
 import com.springproject.dvdrental.model.Film_Category;
+import com.springproject.dvdrental.model.Inventory;
 import com.springproject.dvdrental.model.Language;
 import com.springproject.dvdrental.model.Staff;
 import com.springproject.dvdrental.model.Store;
@@ -22,8 +24,10 @@ import com.springproject.dvdrental.service.AddressService;
 import com.springproject.dvdrental.service.CategoryService;
 import com.springproject.dvdrental.service.CityService;
 import com.springproject.dvdrental.service.CountryService;
+import com.springproject.dvdrental.service.CustomerService;
 import com.springproject.dvdrental.service.FilmService;
 import com.springproject.dvdrental.service.Film_CategoryService;
+import com.springproject.dvdrental.service.InventoryService;
 import com.springproject.dvdrental.service.LanguageService;
 import com.springproject.dvdrental.service.StaffService;
 import com.springproject.dvdrental.service.StoreService;
@@ -51,6 +55,10 @@ public class TestPersistenceController {
 	private Film_CategoryService filmCatService;
 	@Autowired
 	private StoreService storeService;
+	@Autowired
+	private CustomerService customerService;
+	@Autowired
+	private InventoryService inventoryService;
 	
 	@GetMapping("/")
 	public String viewHomePage(Model model) {
@@ -108,6 +116,14 @@ public class TestPersistenceController {
 				
 				for(Store st : storeService.getAllStores()) {
 					System.out.print("Store: " + st.getStoreId() + st.getStaff().getFirstName() + st.getAddress().getDistrict());
+				}
+				
+				for(Customer custo : customerService.getAllCustomers()) {
+					System.out.println("Customer: " + custo.getFirstName() + custo.getActive() + custo.getAddress().getPostaCode() + custo.getCustomerId() + custo.getStore().getLastUpdate());
+				}
+				
+				for(Inventory inv : inventoryService.getAllInventories()) {
+					System.out.println("Inventory: " + inv.getInventoryId() + inv.getFilm().getTitle() + inv.getStore().getLastUpdate());
 				}
 				
 				System.out.println("Cantidad de actores: " + actorService.getAllActors().size());

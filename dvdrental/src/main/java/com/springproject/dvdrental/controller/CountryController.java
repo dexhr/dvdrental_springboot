@@ -25,12 +25,12 @@ import com.springproject.dvdrental.service.CountryService;
 @SpringBootApplication
 @RestController
 //@CrossOrigin(origins = "*")
-@CrossOrigin(origins = "http://localhost:8080")
+@CrossOrigin(origins = "http://localhost:4200")
 public class CountryController {
 	@Autowired
 	private CountryService countryService;
 	
-	@GetMapping("/countries")
+	@GetMapping("/api/v1/countries")
 	public List<Country> getCountries(){
 		return countryService.getAllCountries();
 	}

@@ -1,8 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
+import { CountryListComponent } from './country/country-list/country-list.component';
 
-const routes: Routes = [];
+
+const routes: Routes = [
+  { path: 'country-list', component: CountryListComponent }
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

@@ -1,0 +1,24 @@
+<p>country-list works!</p>
+<div class="panel panel-primary">
+    <div class="panel-heading">
+      <h2>Employee List</h2>
+    </div>
+    <div class="panel-body">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Last update</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let country of countries | async">
+            <td>{{country.countryId}}</td>
+            <td>{{country.country}}</td>
+            <td>{{country.lastUpdate}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+</div>

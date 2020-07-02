@@ -20,12 +20,12 @@ import com.springproject.dvdrental.service.ActorService;
 
 @SpringBootApplication
 @RestController
-@CrossOrigin(origins = "http://localhost:8080")
+@CrossOrigin(origins = "http://localhost:4200")
 public class ActorController {
 	@Autowired
 	ActorService actorService; 
 	
-	@GetMapping("/actors")
+	@GetMapping("api/v1/actors")
 	public List<Actor> getActors(){
 		return actorService.getAllActors();
 	}

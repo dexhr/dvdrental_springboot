@@ -6,11 +6,13 @@ import { AppComponent } from './app.component';
 import { CountryListComponent } from './country/country-list/country-list.component';
 
 import { HttpClientModule } from '@angular/common/http';
+import { ActorListComponent } from './actor/actor-list/actor-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CountryListComponent
+    CountryListComponent,
+    ActorListComponent
   ],
   imports: [
     BrowserModule,

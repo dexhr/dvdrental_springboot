@@ -1,5 +1,5 @@
 export class Country {
-    countryId : number;
-    country: String;
-    lastUpdate: Date;
+    private countryId : number;
+    private country: String;
+    private lastUpdate: Date;
 }

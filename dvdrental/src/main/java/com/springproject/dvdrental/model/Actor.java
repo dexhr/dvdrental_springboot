@@ -47,6 +47,13 @@ public class Actor {
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
+
+	public Date getLastUpdate() {
+		return lastUpdate;
+	}
+	public void setLastUpdate(Date lastUpdate) {
+		this.lastUpdate = lastUpdate;
+	}
 	
 	
 }

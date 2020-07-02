@@ -30,7 +30,7 @@ public class ActorController {
 		return actorService.getAllActors();
 	}
 	
-	@GetMapping("/countries")
+	@GetMapping("/actors/{id}")
 	public ResponseEntity<Actor> getActor(@PathVariable(value = "id") Integer id) 
 			throws ResourceNotFoundException{
 		try {
@@ -41,17 +41,18 @@ public class ActorController {
 		}
 	}
 	
-	@PostMapping("/countries/{id}")
+	@PostMapping("/actors/{id}")
 	public ResponseEntity<Actor> updateCountry(@PathVariable(value = "id") Integer id,
 			@RequestBody Actor actorDetails){
 		Date date = new Date();
 		Actor actor = actorService.getActorById(id);
 		actor.setFirstName(actorDetails.getFirstName());
 		actor.setLastName(actor.getLastName());
+		actor.setLastUpdate(date);
 		return ResponseEntity.ok().body(actor);
 	}
 	
-	@DeleteMapping("/countries")
+	@DeleteMapping("/actors")
 	public boolean deleteCountry(Integer id) {
 		actorService.deleteActor(id);
 		return true;

@@ -37,7 +37,6 @@ public class ActorController {
 			Actor actor = actorService.getActorById(id);
 			return ResponseEntity.ok().body(actor);
 		}catch(Exception ex) {
-			//throw new ResourceNotFoundException("Actor not found");
 			throw new ResourceNotFoundException("Actor no encontrado");
 		}
 	}

@@ -37,24 +37,15 @@ public class ActorController {
 			Actor actor = actorService.getActorById(id);
 			return ResponseEntity.ok().body(actor);
 		}catch(Exception ex) {
-			throw new ResourceNotFoundException("Actor not found");
+			//throw new ResourceNotFoundException("Actor not found");
+			throw new ResourceNotFoundException("Actor no encontrado");
 		}
-	}
-	
-	@PostMapping("/actors/{id}")
-	public ResponseEntity<Actor> updateCountry(@PathVariable(value = "id") Integer id,
-			@RequestBody Actor actorDetails){
-		Date date = new Date();
-		Actor actor = actorService.getActorById(id);
-		actor.setFirstName(actorDetails.getFirstName());
-		actor.setLastName(actor.getLastName());
-		actor.setLastUpdate(date);
-		return ResponseEntity.ok().body(actor);
 	}
 	
 	@DeleteMapping("/actors")
 	public boolean deleteCountry(Integer id) {
 		actorService.deleteActor(id);
+		System.out.println("Borrando actor");
 		return true;
 	}
 	
